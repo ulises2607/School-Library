@@ -1,5 +1,7 @@
 class Person
   @last_id = 0
+  attr_reader :id
+  attr_accessor :name, :age
 
   def initialize(age, name = 'Unknown', parent_permission: true)
     @id = next_id
@@ -7,8 +9,6 @@ class Person
     @age = age
     @parent_permission = parent_permission
   end
-  attr_reader :id
-  attr_accessor :name, :age
 
   def next_id
     @last_id += 1
