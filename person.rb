@@ -1,5 +1,9 @@
+require_relative 'nameable'
+require_relative 'capitalize'
+require_relative 'trimmer'
+
 class Person < Nameable
-  @last_id = 0
+
   attr_reader :id
   attr_accessor :name, :age
 
@@ -11,7 +15,7 @@ class Person < Nameable
   end
 
   def next_id
-    @last_id += 1
+    @last_id = rand(1000..9999)
   end
 
   def of_age?
@@ -25,5 +29,5 @@ class Person < Nameable
   def correct_name
     @name
   end
-  
+
 end
