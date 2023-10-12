@@ -1,4 +1,4 @@
-class Person
+class Person < Nameable
   @last_id = 0
   attr_reader :id
   attr_accessor :name, :age
@@ -21,4 +21,9 @@ class Person
   def can_use_services?
     of_age? || @parent_permission
   end
+
+  def correct_name
+    @name
+  end
+  
 end
