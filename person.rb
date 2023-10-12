@@ -3,11 +3,11 @@ require_relative 'capitalize'
 require_relative 'trimmer'
 
 class Person < Nameable
-
   attr_reader :id
   attr_accessor :name, :age
 
   def initialize(age, name = 'Unknown', parent_permission: true)
+    super()
     @id = next_id
     @name = name
     @age = age
@@ -29,5 +29,4 @@ class Person < Nameable
   def correct_name
     @name
   end
-
 end
