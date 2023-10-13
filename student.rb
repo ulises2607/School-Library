@@ -1,11 +1,10 @@
 require_relative 'person'
 
 class Student < Person
-
   attr_accessor :classroom
 
   def initialize(age, name = 'Unknown', parent_permission: true)
-    super(age, name)
+    super(age, name, parent_permission)
     @classroom = nil
   end
 
@@ -16,8 +15,4 @@ class Student < Person
   def join_classroom(classroom)
     @classroom = classroom
   end
-
 end
-
-
-
