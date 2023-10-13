@@ -14,5 +14,6 @@ class Student < Person
 
   def join_classroom(classroom)
     @classroom = classroom
+    classroom.students << self
   end
 end
