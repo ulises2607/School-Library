@@ -16,7 +16,7 @@ class Person < Nameable
   end
 
   def next_id
-    @last_id = rand(1000..9999)
+    @last_id = rand(0..1000)
   end
 
   def of_age?
