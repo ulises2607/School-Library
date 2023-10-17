@@ -3,6 +3,7 @@ require_relative 'book'
 require_relative 'rental'
 require_relative 'student'
 require_relative 'teacher'
+require_relative 'user_interface'
 
 class App
   attr_accessor :people, :books, :running, :rentals
@@ -17,7 +18,7 @@ class App
   def run
     while @running
       UserInterface.print_main_menu
-      option = UserInterface.get_user_input.to_i
+      option = UserInterface.user_input.to_i
       option_choice(option)
     end
   end
