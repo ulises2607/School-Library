@@ -14,11 +14,10 @@ class App
     @running = true
   end
 
-  def run()
+  def run
     while @running
-      print_main_menu
-      option = gets.chomp.to_i
-      option = option.to_i
+      UserInterface.print_main_menu
+      option = UserInterface.get_user_input.to_i
       option_choice(option)
     end
   end
