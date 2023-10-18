@@ -1,4 +1,3 @@
-rental_creation.rb
 require_relative 'rental'
 class RentalCreation
     def create_rental(books, people, rentals)
