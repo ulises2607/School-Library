@@ -5,7 +5,6 @@ require_relative 'book_creation'
 require_relative 'rental_creation'
 
 class App
-
   attr_accessor :people_list, :books_list, :running, :rentals
 
   def initialize

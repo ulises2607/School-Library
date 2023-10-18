@@ -9,6 +9,7 @@ class List
     end
     puts 'Press Enter to continue!'
   end
+
   def people(list)
     puts 'No people' if list.empty?
     list.each do |person|
@@ -16,6 +17,7 @@ class List
     end
     puts 'Press Enter to continue!'
   end
+
   def rentals(list)
     list.each do |person|
       puts "- [#{person.class}] Name: \"#{person.name}\", ID: #{person.id}, Age: #{person.age}"
