@@ -17,4 +17,9 @@ class Student < Person
     @classroom = classroom
     classroom.students << self
   end
+
+  def to_json(*_args)
+    {"name" => @name , "age" => @age , "id" => @id, "parent_permission" => @parent_permission }.to_json
+  end
+  
 end

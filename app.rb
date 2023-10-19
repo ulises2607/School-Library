@@ -3,6 +3,7 @@ require_relative 'people_creation'
 require_relative 'list'
 require_relative 'book_creation'
 require_relative 'rental_creation'
+require_relative 'save_data'
 
 class App
   attr_accessor :people_list, :books_list, :running, :rentals
@@ -45,6 +46,8 @@ class App
   end
 
   def exit_application
+    DataSaver.save_books(@books_list)
+    DataSaver.save_people(@people_list)
     @running = false
   end
 
