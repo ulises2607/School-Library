@@ -69,7 +69,9 @@ class App
   end
 
   def list_rentals()
-    @list.rentals(@people_list)
+    puts "Rentals:"
+    puts @rentals_list.map { |rental| rental.to_json }
+    # @list.rentals(@people_list)
     gets.chomp
   end
 

@@ -14,7 +14,7 @@ module DataSaver
     end
     books_data += books.map(&:to_json)
     File.open('books.json', 'w') do |file|
-      file.puts JSON.pretty_generate(books_data)
+      file.puts JSON.generate(books_data)
     end
   end
 
@@ -31,7 +31,7 @@ module DataSaver
     end
     people_data += people.map(&:to_json)
     File.open('people.json', 'w') do |file|
-      file.puts JSON.pretty_generate(people_data)
+      file.puts JSON.generate(people_data)
     end
   end
 
@@ -49,7 +49,7 @@ module DataSaver
     end
     rentals_data += rentals.map(&:to_json)
     File.open('rentals.json', 'w') do |file|
-      file.puts JSON.pretty_generate(rentals_data)
+      file.puts JSON.generate(rentals_data)
     end
   end
 

@@ -1,16 +1,1 @@
-[
-  {
-    "title": "Book 1",
-    "author": "Author 1",
-    "rental": [
-
-    ]
-  },
-  {
-    "title": "Book 2",
-    "author": "Author 2",
-    "rental": [
-
-    ]
-  }
-]
+[{"title":"Los 7 locos","author":"Roberto Arlt"}]
