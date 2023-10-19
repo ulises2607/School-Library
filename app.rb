@@ -48,6 +48,7 @@ class App
   def exit_application
     DataSaver.save_books(@books_list)
     DataSaver.save_people(@people_list)
+    DataSaver.save_rentals(@rentals_list)
     @running = false
   end
 
