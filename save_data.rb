@@ -14,7 +14,7 @@ module DataSaver
     end
     books_data += books.map(&:to_json)
     File.open('books.json', 'w') do |file|
-      file.puts JSON.generate(books_data)
+      file.puts JSON.pretty_generate(books_data)
     end
   end
 

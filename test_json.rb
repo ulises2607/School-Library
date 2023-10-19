@@ -2,7 +2,7 @@ require_relative 'save_data'
 
 data = DataSaver.load_books
 
-puts ""
-puts data[0][1]
+# puts ""
+# puts data.each { |book| puts book.class }
 
-# puts data
+puts data.map { |book| book['title'] }
