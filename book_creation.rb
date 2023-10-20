@@ -6,7 +6,8 @@ class BookCreation
     title = gets.chomp
     print 'Author: '
     author = gets.chomp
-    books << Book.new(title, author)
+    new_book = Book.new(title, author)
+    books << new_book
     puts 'Book created successfully'
   end
 end

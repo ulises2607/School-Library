@@ -12,6 +12,7 @@ class Teacher < Person
   end
 
   def to_json(*_args)
-    { 'name' => @name, 'age' => @age, 'specialization' => @specialization, 'parent_permission' => @parent_permission, 'id' => @id }
+    { 'name' => @name, 'age' => @age, 'specialization' => @specialization, 'parent_permission' => @parent_permission,
+      'id' => @id }
   end
 end

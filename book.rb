@@ -12,10 +12,10 @@ class Book
   end
 
   def rentals_list
-    @rentals.map(&:book)
+    @rentals.map(&:date)
   end
 
   def to_json(*_args)
-    { 'title' => @title, 'author' => @author}
+    { 'title' => @title, 'author' => @author }
   end
 end

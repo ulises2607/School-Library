@@ -4,14 +4,15 @@ require_relative 'list'
 require_relative 'book_creation'
 require_relative 'rental_creation'
 require_relative 'save_data'
+require_relative 'data_loader'
 
 class App
   attr_accessor :people_list, :books_list, :running, :rentals
 
   def initialize
-    @books_list = []
-    @people_list = []
-    @rentals_list = []
+    @books_list = DataLoader.load_books
+    @people_list = DataLoader.load_people
+    @rentals_list = DataLoader.load_rentals
     @list = List.new
     @create_people = PeopleCreation.new
     @create_rentals = RentalCreation.new
@@ -69,9 +70,7 @@ class App
   end
 
   def list_rentals()
-    puts "Rentals:"
-    puts @rentals_list.map { |rental| rental.to_json }
-    # @list.rentals(@people_list)
+    @list.rentals(@people_list)
     gets.chomp
   end
 
