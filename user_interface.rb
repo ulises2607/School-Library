@@ -3,6 +3,8 @@ module UserInterface
     puts "\n"
     puts '----------------------------------'
     puts 'Please choose an option by entering a number'
+    puts '----------------------------------'
+    puts "\n"
     puts '1 - List all books'
     puts '2 - List all people'
     puts '3 - Create a person'
