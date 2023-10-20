@@ -1,6 +1,7 @@
 require_relative 'save_data'
 require_relative 'student'
 require_relative 'teacher'
+require_relative 'book_manager'
 
 data = DataSaver.load_books
 
@@ -18,10 +19,15 @@ puts '...'
 
 puts "Cantidad de elementos: #{data2.length}"
 
-person_test = Student.new(20, 'Juan', parent_permission: true, id: 2)
+# person_test = Student.new(20, 'Juan', parent_permission: true, id: 2)
 
-puts "Person test: #{person_test.to_json}"
+# puts "Person test: #{person_test.to_json}"
 
-teacher_test = Teacher.new(20, 'Math', 'Juan', parent_permission: true, id: 3)
+# teacher_test = Teacher.new(20, 'Math', 'Juan', parent_permission: true, id: 3)
 
-puts "Teacher test: #{teacher_test.to_json}"
+# puts "Teacher test: #{teacher_test.to_json}"
+
+bm = BookManager.new
+data3 = bm.load_books
+
+puts data3

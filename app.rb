@@ -5,18 +5,17 @@ require_relative 'book_creation'
 require_relative 'rental_creation'
 require_relative 'save_data'
 require_relative 'data_loader'
+require_relative 'book_manager'
+require_relative 'people_manager'
+require_relative 'rental_manager'
 
 class App
-  attr_accessor :people_list, :books_list, :running, :rentals
+  attr_accessor :running, :rentals, :book_manager, :people_list
 
   def initialize
-    @books_list = DataLoader.load_books
-    @people_list = DataLoader.load_people
-    @rentals_list = DataLoader.load_rentals
-    @list = List.new
-    @create_people = PeopleCreation.new
-    @create_rentals = RentalCreation.new
-    @create_books = BookCreation.new
+    @book_manager = BookManager.new
+    @people_manager = PeopleManager.new
+    @rental_manager = RentalManager.new(@book_manager, @people_manager)
     @running = true
   end
 
@@ -47,9 +46,9 @@ class App
   end
 
   def exit_application
-    DataSaver.save_books(@books_list)
-    DataSaver.save_people(@people_list)
-    DataSaver.save_rentals(@rentals_list)
+    @book_manager.save_books()
+    @people_manager.save_people()
+    @rental_manager.save_rentals()
     @running = false
   end
 
@@ -58,29 +57,29 @@ class App
   end
 
   def create_person()
-    @create_people.create_person(@people_list)
+    @people_manager.create_person()
   end
 
   def create_book
-    @create_books.create_book(@books_list)
+    @book_manager.create_book()
   end
 
   def create_rental()
-    @create_rentals.create_rental(@books_list, @people_list, @rentals_list)
+    @rental_manager.create_new_rental(@book_manager.books_list, @people_manager.people_list, @rental_manager.rentals_list)
   end
 
   def list_rentals()
-    @list.rentals(@people_list)
+    @rental_manager.show_rentals()
     gets.chomp
   end
 
   def list_all_books()
-    @list.books(@books_list)
+    @book_manager.show_books()
     gets.chomp
   end
 
   def list_all_people()
-    @list.people(@people_list)
+    @people_manager.show_people()
     gets.chomp
   end
 end
