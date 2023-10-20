@@ -1,10 +1,4 @@
 require_relative 'user_interface'
-require_relative 'people_creation'
-require_relative 'list'
-require_relative 'book_creation'
-require_relative 'rental_creation'
-require_relative 'save_data'
-require_relative 'data_loader'
 require_relative 'book_manager'
 require_relative 'people_manager'
 require_relative 'rental_manager'
@@ -46,9 +40,9 @@ class App
   end
 
   def exit_application
-    @book_manager.save_books()
-    @people_manager.save_people()
-    @rental_manager.save_rentals()
+    @book_manager.save_books
+    @people_manager.save_people
+    @rental_manager.save_rentals
     @running = false
   end
 
@@ -57,29 +51,30 @@ class App
   end
 
   def create_person()
-    @people_manager.create_person()
+    @people_manager.create_person
   end
 
   def create_book
-    @book_manager.create_book()
+    @book_manager.create_book
   end
 
   def create_rental()
-    @rental_manager.create_new_rental(@book_manager.books_list, @people_manager.people_list, @rental_manager.rentals_list)
+    @rental_manager.create_new_rental(@book_manager.books_list, @people_manager.people_list,
+                                      @rental_manager.rentals_list)
   end
 
   def list_rentals()
-    @rental_manager.show_rentals()
+    @rental_manager.show_rentals
     gets.chomp
   end
 
   def list_all_books()
-    @book_manager.show_books()
+    @book_manager.show_books
     gets.chomp
   end
 
   def list_all_people()
-    @people_manager.show_people()
+    @people_manager.show_people
     gets.chomp
   end
 end

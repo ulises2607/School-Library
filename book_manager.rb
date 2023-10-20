@@ -1,12 +1,11 @@
 require_relative 'book'
 
 class BookManager
-
   attr_accessor :books_list
 
   def initialize
     @books_list = []
-    self.load_books
+    load_books
   end
 
   def create_book
@@ -27,7 +26,7 @@ class BookManager
 
   def load_books
     if File.exist?('books.json')
-      if File.size('books.json') == 0
+      if File.empty?('books.json')
         @books_list = []
       else
         catched_data = JSON.parse(File.read('books.json'))
@@ -44,18 +43,16 @@ class BookManager
     if @books_list.empty?
       puts 'No books'
     else
-        puts ""
-        puts '-----------------'
-        puts 'List of books'
-        puts '-----------------'
+      puts ''
+      puts '-----------------'
+      puts 'List of books'
+      puts '-----------------'
       @books_list.each do |book|
         puts "Title: \"#{book.title}\", Author: #{book.author}"
       end
       puts '-----------------'
     end
-    puts ""
+    puts ''
     puts 'Press Enter to continue!'
   end
-
 end
-
