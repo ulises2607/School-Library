@@ -1,7 +1,6 @@
-
-
 require 'rspec'
-require_relative '../book' 
+require_relative '../book'
+
 describe Book do
   let(:book) { Book.new('Sample Title', 'Sample Author') }
 
@@ -19,7 +18,7 @@ describe Book do
       rental2 = double('Rental', date: '2023-10-15')
 
       book.instance_variable_set(:@rentals, [rental1, rental2])
-      expect(book.rentals_list).to eq(['2023-10-01', '2023-10-15'])
+      expect(book.rentals_list).to eq(%w[2023-10-01 2023-10-15])
     end
   end
 

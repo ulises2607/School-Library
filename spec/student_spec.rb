@@ -1,6 +1,5 @@
 require 'rspec'
-
-require_relative '../student' 
+require_relative '../student'
 
 describe Student do
   let(:student) { Student.new(16, 'Alice', parent_permission: true, id: 456) }
